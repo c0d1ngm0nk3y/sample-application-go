@@ -8,6 +8,12 @@ import (
 )
 
 func handleQuote(ctx *gin.Context) {
+	defer func() {
+		if r := recover(); r != nil {
+			ctx.String(500, "panic")
+		}
+	}()
+
 	input := make([]byte, 5)
 	_, err := ctx.Request.Body.Read(input)
 	if nil != err {
