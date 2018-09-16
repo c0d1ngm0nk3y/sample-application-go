@@ -1,6 +1,8 @@
 package main
 
 import (
+	"encoding/json"
+	"fmt"
 	"io/ioutil"
 	"net/http"
 
@@ -9,6 +11,34 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
+func handleQuoteJSON(ctx *gin.Context) {
+	defer func() {
+		if r := recover(); r != nil {
+			ctx.String(500, "panic")
+		}
+	}()
+
+	inputBytes, err := ioutil.ReadAll(ctx.Request.Body)
+	fmt.Printf("in: %s\n", string(inputBytes))
+	if nil != err {
+		ctx.String(http.StatusInternalServerError, err.Error())
+		return
+	}
+	input := model.StringToInputFlat(inputBytes)
+	price := quotation.Do(input)
+	if nil != err {
+		ctx.String(http.StatusBadRequest, err.Error())
+		return
+	}
+
+	var rawInput map[string]interface{}
+	json.Unmarshal(inputBytes, &rawInput)
+	rawInput["price"] = price
+	output, _ := json.Marshal(rawInput)
+	fmt.Printf("out: %s\n", string(output))
+	ctx.JSON(http.StatusOK, rawInput)
+}
+
 func handleQuote(ctx *gin.Context) {
 	defer func() {
 		if r := recover(); r != nil {
@@ -16,12 +46,13 @@ func handleQuote(ctx *gin.Context) {
 		}
 	}()
 
-	input, err := ioutil.ReadAll(ctx.Request.Body)
+	inputBytes, err := ioutil.ReadAll(ctx.Request.Body)
 	if nil != err {
 		ctx.String(http.StatusInternalServerError, err.Error())
 		return
 	}
-	price, err := quotation.Do(input)
+	input := model.StringToInput(inputBytes)
+	price := quotation.Do(input)
 	if nil != err {
 		ctx.String(http.StatusBadRequest, err.Error())
 		return
@@ -37,6 +68,7 @@ func getRouter() *gin.Engine {
 		c.String(200, "pong")
 	})
 	router.POST("/quotation", handleQuote)
+	router.POST("/quotation.json", handleQuoteJSON)
 	return router
 }
 
