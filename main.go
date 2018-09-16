@@ -19,10 +19,12 @@ func handleQuote(ctx *gin.Context) {
 	input, err := ioutil.ReadAll(ctx.Request.Body)
 	if nil != err {
 		ctx.String(http.StatusInternalServerError, err.Error())
+		return
 	}
 	price, err := quotation.Do(input)
 	if nil != err {
 		ctx.String(http.StatusBadRequest, err.Error())
+		return
 	}
 
 	result := model.Result{Price: price}
