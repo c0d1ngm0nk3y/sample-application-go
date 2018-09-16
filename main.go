@@ -1,6 +1,7 @@
 package main
 
 import (
+	"io/ioutil"
 	"net/http"
 
 	"github.com/c0d1ngm0nk3y/sample-application-go/pkg/quotation"
@@ -14,15 +15,16 @@ func handleQuote(ctx *gin.Context) {
 		}
 	}()
 
-	input := make([]byte, 5)
-	_, err := ctx.Request.Body.Read(input)
+	input, err := ioutil.ReadAll(ctx.Request.Body)
 	if nil != err {
 		ctx.String(http.StatusInternalServerError, err.Error())
 	}
-	err = quotation.Do(input)
+	_, err = quotation.Do(input)
 	if nil != err {
 		ctx.String(http.StatusBadRequest, err.Error())
 	}
+
+	ctx.String(http.StatusOK, "")
 }
 
 func getRouter() *gin.Engine {
