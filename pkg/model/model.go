@@ -1,5 +1,9 @@
 package model
 
+type Result struct {
+	Price float64 `json:"price"`
+}
+
 type Insurances struct {
 	Life bool `json:"life"`
 }

@@ -2,10 +2,12 @@ package main
 
 import (
 	"bytes"
+	"encoding/json"
 	"net/http"
 	"net/http/httptest"
 	"testing"
 
+	"github.com/c0d1ngm0nk3y/sample-application-go/pkg/model"
 	. "github.com/onsi/gomega"
 )
 
@@ -51,6 +53,11 @@ func TestEmptyJsonQuotation(t *testing.T) {
 	router.ServeHTTP(response, request)
 
 	g.Expect(response.Code).To(Equal(http.StatusOK))
+
+	var result model.Result
+	err = json.Unmarshal([]byte(response.Body.String()), &result)
+	g.Expect(err).NotTo(HaveOccurred())
+	g.Expect(result.Price).To(Equal(0.0))
 }
 
 func TestQuotationWithoutBody(t *testing.T) {
