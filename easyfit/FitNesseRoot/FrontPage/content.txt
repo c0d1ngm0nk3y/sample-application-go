@@ -1,0 +1,17 @@
+!define TEST_SYSTEM {slim}
+
+!path ./easyfit.jar
+
+!|Import       |
+|easyfit.tables|
+
+!|Table:Configuration                                |
+|baseURL    |http://localhost:8080/(controller).json|
+|logFilePath|./easyfit.log                           |
+
+!|Table:Row|quotation   |
+|price?    |life  |age  |
+|100       |true  |18   |
+|0         |false |20   |
+|1         |false |66   |
+|150       |true  |33   |

@@ -1,0 +1,4 @@
+#!/bin/bash
+docker build -t easyfit .
+docker tag easyfit c0d1ngm0nk3y/easyfit
+docker push c0d1ngm0nk3y/easyfit
