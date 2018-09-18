@@ -1,0 +1,4 @@
+#!/bin/bash
+docker build -t simple-app .
+docker tag simple-app c0d1ngm0nk3y/simple-app
+docker push c0d1ngm0nk3y/simple-app

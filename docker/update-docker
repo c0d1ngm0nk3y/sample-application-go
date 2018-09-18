@@ -1,4 +1,0 @@
-#!/bin/bash
-docker build -t sample-app .
-docker tag sample-app c0d1ngm0nk3y/sample-app
-docker push c0d1ngm0nk3y/sample-app
