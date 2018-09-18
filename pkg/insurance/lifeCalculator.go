@@ -12,3 +12,21 @@ func CalculateLife(data model.Data) float64 {
 
 	return costs
 }
+
+func CalculateHousehold(data model.Data) float64 {
+	costs := 75.0
+
+	return costs
+}
+
+func CalculateAccident(data model.Data) float64 {
+	costs := 150.0
+
+	return costs
+}
+
+func CalculateLiability(data model.Data) float64 {
+	costs := 250.0
+
+	return costs
+}

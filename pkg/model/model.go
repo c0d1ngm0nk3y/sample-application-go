@@ -11,7 +11,10 @@ type Result struct {
 }
 
 type Insurances struct {
-	Life bool `json:"life"`
+	Life      bool `json:"life"`
+	Household bool `json:"household"`
+	Liability bool `json:"liability"`
+	Accident  bool `json:"accident"`
 }
 
 //Data contains all personal Data
@@ -49,7 +52,10 @@ func StringToInputFlat(in []byte) Input {
 	data := Data{Age: age}
 
 	life, _ := strconv.ParseBool(raw["life"])
-	insurances := Insurances{Life: life}
+	household, _ := strconv.ParseBool(raw["household"])
+	liability, _ := strconv.ParseBool(raw["liability"])
+	accident, _ := strconv.ParseBool(raw["accident"])
+	insurances := Insurances{Life: life, Household: household, Liability: liability, Accident: accident}
 	fmt.Printf("insuraces: %v\n", insurances)
 
 	input := Input{Data: data, Insurances: insurances}
