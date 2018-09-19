@@ -10,6 +10,5 @@
 |logFilePath|./easyfit.log                           |
 
 !|Table:Row|quotation   |
-|price?    |life  |household |accident |liability |age  |
-|576       |true  |true      |true     |true      |18   |
-|1         |false |false     |false    |false     |18   |
+|price?    |life  |household |accident |liability |age  |male  |married |kids |
+|226       |true  |false     |true     |false     |25   |true  |false   |0    |

@@ -14,5 +14,5 @@ func TestDefaultLife(t *testing.T) {
 
 	result := CalculateLife(data)
 
-	g.Expect(result).To(Equal(150.0))
+	g.Expect(result).To(Equal(100.0))
 }

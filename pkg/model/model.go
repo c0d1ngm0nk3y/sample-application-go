@@ -19,7 +19,10 @@ type Insurances struct {
 
 //Data contains all personal Data
 type Data struct {
-	Age int `json:"age"`
+	Age     int  `json:"age"`
+	Kids    int  `json:"kids"`
+	Married bool `json:"married"`
+	Male    bool `json:"married"`
 }
 
 //Input contains all request data in a structured way
@@ -49,7 +52,10 @@ func StringToInputFlat(in []byte) Input {
 	}
 
 	age, _ := strconv.Atoi(raw["age"])
-	data := Data{Age: age}
+	kids, _ := strconv.Atoi(raw["kids"])
+	married, _ := strconv.ParseBool(raw["married"])
+	male, _ := strconv.ParseBool(raw["male"])
+	data := Data{Age: age, Kids: kids, Married: married, Male: male}
 
 	life, _ := strconv.ParseBool(raw["life"])
 	household, _ := strconv.ParseBool(raw["household"])
