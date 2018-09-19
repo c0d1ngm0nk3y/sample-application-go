@@ -6,7 +6,7 @@
 |easyfit.tables|
 
 !|Table:Configuration                                |
-|baseURL    |http://localhost:8080/(controller).json|
+|baseURL    |http://sut:80/(controller).json|
 |logFilePath|./easyfit.log                           |
 
 !|Table:Row|quotation   |

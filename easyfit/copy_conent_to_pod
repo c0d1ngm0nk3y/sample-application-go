@@ -1,5 +1,5 @@
 #!/bin/bash
 NAME=$1
-POD=`kubectl get pod -n workshop | awk '{print $1}' | grep $NAME`
+POD=`kubectl get pod -n workshop | awk '{print $1}' | grep "$NAME-"`
 echo "copy FitNesseRoot to pod $POD"
 kubectl cp -n workshop FitNesseRoot/ $POD:/app
