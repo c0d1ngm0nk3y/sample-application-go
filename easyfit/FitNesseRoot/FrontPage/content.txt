@@ -6,9 +6,9 @@
 |easyfit.tables|
 
 !|Table:Configuration                                |
-|baseURL    |http://sut:80/(controller).json|
+|baseURL    |http://sut:8080/(controller).json|
 |logFilePath|./easyfit.log                           |
 
 !|Table:Row|quotation   |
 |price?    |life  |household |accident |liability |age  |male  |married |kids |
-|226       |true  |false     |true     |false     |25   |true  |false   |0    |
+|225       |true  |false     |true     |false     |25   |true  |false   |0    |

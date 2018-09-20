@@ -56,6 +56,7 @@ func StringToInputFlat(in []byte) Input {
 	married, _ := strconv.ParseBool(raw["married"])
 	male, _ := strconv.ParseBool(raw["male"])
 	data := Data{Age: age, Kids: kids, Married: married, Male: male}
+	fmt.Printf("data: %v\n", data)
 
 	life, _ := strconv.ParseBool(raw["life"])
 	household, _ := strconv.ParseBool(raw["household"])
