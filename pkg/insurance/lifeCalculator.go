@@ -10,7 +10,7 @@ func CalculateLife(data model.Data) float64 {
 		costs = costs + 50
 	}
 
-	if !data.Male { //fix
+	if data.Male { //fix
 		costs = costs + 25
 	}
 
@@ -25,7 +25,7 @@ func CalculateHousehold(data model.Data) float64 {
 	costs := 75.0
 
 	if data.Married {
-		costs = costs + 50
+		costs = costs + 75
 	}
 
 	return costs
