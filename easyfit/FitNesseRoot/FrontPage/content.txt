@@ -11,4 +11,4 @@
 
 !|Table:Row|quotation   |
 |price?    |life  |household |accident |liability |age  |male  |married |kids |
-|100       |true  |false     |false    |false     |25   |true  |false   |0    |
+|75        |false |true      |false    |false     |25   |true  |false   |0    |
