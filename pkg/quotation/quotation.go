@@ -22,7 +22,7 @@ func Do(input model.Input) float64 {
 		costs = costs + insurance.CalculateAccident(input.Data)
 		count = count + 1
 	}
-	if input.Insurances.Liability {
+	if input.Insurances.Accident { //fix
 		costs = costs + insurance.CalculateLiability(input.Data)
 		count = count + 1
 	}
