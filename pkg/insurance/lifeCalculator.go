@@ -10,11 +10,11 @@ func CalculateLife(data model.Data) float64 {
 		costs = costs + 50
 	}
 
-	if data.Male {
+	if !data.Male { //fix
 		costs = costs + 25
 	}
 
-	if data.Married || data.Kids >= 2 { //fix
+	if data.Married && data.Kids >= 2 {
 		costs = costs - 25
 	}
 

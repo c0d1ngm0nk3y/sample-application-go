@@ -7,7 +7,7 @@ func CalculateBonus(costs float64, count int) float64 {
 		bonus = bonus + 25
 	}
 
-	if count >= 4 && costs >= 600 { //fix
+	if count >= 4 && costs > 600 {
 		bonus = bonus + 25
 	}
 
