@@ -1,3 +1,15 @@
+# Description
+
+The web application can be used to request a quotation for up to 4 different types of insurances (life, household, liability, accident).
+There is an UI for filling out a form with the needed data. All input fields for data that is not needed for the selected insurances (e.g. age if no life insurance is selected).
+When submitting the form, a REST server is requested with the selected data. The server uses the business logic to calculate the price of all insurances and sends the quotation back to the UI where it is displayed to the user.
+
+# Overview
+
+![Achitecture](./architecture.png)
+
+# Details
+
 ## Input Data
 
 * Personal Data
