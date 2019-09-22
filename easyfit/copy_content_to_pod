@@ -1,0 +1,11 @@
+#!/bin/bash
+
+set -eu
+
+SCRIPTDIR=$( dirname "${BASH_SOURCE[0]}" )
+
+NAME=$1
+POD=`kubectl get pod -n workshop | awk '{print $1}' | grep "$NAME-"`
+echo "copy FitNesseRoot to pod $POD using $SCRIPTDIR"
+ls $SCRIPTDIR | grep FitNesseRoot
+kubectl cp -n workshop $SCRIPTDIR/FitNesseRoot/ $POD:/app
