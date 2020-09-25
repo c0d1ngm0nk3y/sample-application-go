@@ -1,3 +1,0 @@
-http://tester-1.ingress.k8s.d050893.shoot.canary.k8s-hana.ondemand.com
-http://tester-2.ingress.k8s.d050893.shoot.canary.k8s-hana.ondemand.com
-http://tester-3.ingress.k8s.d050893.shoot.canary.k8s-hana.ondemand.com
